@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Where Were the Planets on My Birthday?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app">
+        <header class="header">
+            <h1>Where Were the Planets on My Birthday?</h1>
+            <div class="controls">
+                <label class="control">
+        <span>Date</span>
+        <input type="date" id="dateInput">
+      </label>
+                <button id="themeToggle" title="Toggle theme">Theme</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="solar">
+                <div class="detail-card fade" id="detailCard">
+                    <div class="detail-line"><span class="label">Selected date</span><span id="selectedDate">—</span></div>
+                    <div class="detail-line"><span class="label">Day of week</span><span id="selectedWeekday">—</span></div>
+                    <div class="detail-line"><span class="label">Your planets on this day</span><span id="planetSummary">—</span></div>
+                </div>
+                <div class="solar-wrapper">
+                    <svg id="solarSvg" class="fade" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet"></svg>
+                </div>
+                <div class="actions">
+                    <button id="downloadSolar">Download Solar System</button>
+                </div>
+            </section>
+
+            <section class="apod">
+                <h2>Astronomy Picture of your birthday</h2>
+                <div id="apodMedia" class="apod-media fade"></div>
+                <div class="apod-text fade" id="apodText">
+                    <h3 id="apodTitle">—</h3>
+                    <p id="apodExplanation">Select a date to load APOD.</p>
+                </div>
+                <div class="actions">
+                    <button id="downloadApod">Download APOD</button>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <span>Data: NASA APOD. Orbits are simplified. Dev: Hirachand</span>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

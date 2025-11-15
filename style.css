@@ -1,0 +1,252 @@
+:root {
+    --bg: #0b0f1a;
+    --text: #e6edf7;
+    --muted: #9aa3b2;
+    --accent: #5dd1ff;
+    --card: #121726;
+    --orbit: #253047;
+    --sun: #f6c453;
+    --mercury: #b3b3b3;
+    --venus: #f5d27b;
+    --earth: #5db0ff;
+    --mars: #ff6b6b;
+    --jupiter: #d7b899;
+    --saturn: #d9c987;
+    --uranus: #86e3f5;
+    --neptune: #7aa3ff;
+    --space-gradient: radial-gradient(ellipse at center, #0e1526 0%, #0b0f1a 100%);
+    --border: #1f2738
+}
+
+[data-theme="light"] {
+    --bg: #f2f5fb;
+    --text: #1b2130;
+    --muted: #5c708a;
+    --accent: #4f83ff;
+    --card: #ffffff;
+    --orbit: #cbd5e1;
+    --sun: #f3a952;
+    --mercury: #8e8e8e;
+    --venus: #e9c46a;
+    --earth: #3da5ff;
+    --mars: #e85d5d;
+    --jupiter: #c7aa86;
+    --saturn: #cdbb86;
+    --uranus: #5ecbe0;
+    --neptune: #4a86ff;
+    --space-gradient: radial-gradient(ellipse at center, #e9effa 0%, #f2f5fb 100%);
+    --border: #cbd5e1
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+    transition: background .3s ease, color .3s ease
+}
+
+.app {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 24px
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    text-align: center
+}
+
+.header h1 {
+    margin: 0;
+    font-size: clamp(1.25rem, 2.5vw, 2rem)
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: end;
+    justify-content: center
+}
+
+.control {
+    display: flex;
+    flex-direction: column;
+    gap: 4px
+}
+
+.control span {
+    font-size: .85rem;
+    color: var(--muted)
+}
+
+input[type="date"],
+input[type="text"],
+button {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px
+}
+
+input[type="text"] {
+    min-width: 240px
+}
+
+button {
+    cursor: pointer
+}
+
+button:hover {
+    filter: brightness(1.1)
+}
+
+.main {
+    display: flex;
+    flex-direction: column
+}
+
+.solar {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px
+}
+
+.solar-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center
+}
+
+#solarSvg {
+    width: min(100%, 600px);
+    height: auto;
+    background: var(--space-gradient);
+    border-radius: 12px
+}
+
+.detail-card {
+    width: min(100%, 600px);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 8px
+}
+
+.detail-line {
+    display: contents
+}
+
+.detail-line .label {
+    color: var(--muted)
+}
+
+.apod {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px
+}
+
+.apod h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--muted)
+}
+
+.apod-media {
+    width: min(100%, 720px);
+    min-height: 200px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden
+}
+
+.apod-media img,
+.apod-media iframe {
+    max-width: 100%;
+    height: auto;
+    display: block
+}
+
+.apod-text {
+    width: min(100%, 720px);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px
+}
+
+.apod-text h3 {
+    margin: 0 0 6px 0
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px
+}
+
+.fade {
+    opacity: 0;
+    transition: opacity .35s ease
+}
+
+.fade.show {
+    opacity: 1
+}
+
+svg .orbit {
+    fill: none;
+    stroke: var(--orbit);
+    stroke-width: 1.5
+}
+
+svg .sun {
+    fill: var(--sun)
+}
+
+svg .planet-label {
+    font-size: 10px;
+    fill: var(--muted)
+}
+
+.footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+    color: var(--muted)
+}
+
+@media (max-width:520px) {
+    .detail-card {
+        grid-template-columns: 1fr
+    }
+}
